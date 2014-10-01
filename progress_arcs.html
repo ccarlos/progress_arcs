@@ -6,8 +6,16 @@
 </head>
 <body>
 
-    <div ng-controller="Ctrl">
-        <progress-arcs actual=".73" expected=".50"></progress-arcs>
+    <div ng-controller="AppCtrl">
+        <progress-arcs></progress-arcs>
+
+        <form role="form" ng-submit="render_drawing()" ng-init="render_drawing()">
+            <label>Actual</label>
+            <input type="number" name="actual" ng-model="actual" min="0.0" max="1.0" step="0.01" required>
+            <label>Expected</label>
+            <input type="number" name="expected" ng-model="expected" min="0.0" max="1.0" step="0.01" required>
+            <button type="submit">Draw</button>
+        </form>
     </div>
 
 <script src="http://d3js.org/d3.v3.min.js"></script>
